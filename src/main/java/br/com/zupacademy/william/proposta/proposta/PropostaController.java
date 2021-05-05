@@ -1,5 +1,8 @@
 package br.com.zupacademy.william.proposta.proposta;
 
+import br.com.zupacademy.william.proposta.proposta.analisefinanceira.AnaliseFinanceiraClient;
+import br.com.zupacademy.william.proposta.proposta.analisefinanceira.AnaliseFinanceiraRequest;
+import feign.FeignException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,21 +22,36 @@ public class PropostaController {
     @Autowired
     private PropostaRepository propostaRepository;
 
+    @Autowired
+    private AnaliseFinanceiraClient analiseFinanceiraClient;
+
     @Transactional
     @PostMapping
     public ResponseEntity criar(UriComponentsBuilder uriComponentsBuilder,
                                 @RequestBody @Valid PropostaRequest propostaRequest) {
-
         boolean documentoJaCadastrado = propostaRepository.existsByDocumento(propostaRequest.getDocumento());
 
         if (documentoJaCadastrado) {
             return ResponseEntity.unprocessableEntity().build();
         }
 
-        Proposta proposta = propostaRequest.toModel();
-        Proposta novaProposta = propostaRepository.save(proposta);
-        URI enderecoRecurso = uriComponentsBuilder.path("/propostas/{id}").build(novaProposta.getId());
+        var proposta = propostaRequest.toModel();
+        var novaProposta = propostaRepository.save(proposta);
 
+        //TODO      Procurar como refatorar
+        try {
+            var validacaoRequest = new AnaliseFinanceiraRequest(
+                    String.valueOf(novaProposta.getId()),
+                    novaProposta.getDocumento(),
+                    novaProposta.getNome());
+
+            analiseFinanceiraClient.avaliarProposta(validacaoRequest);
+            novaProposta.setEstadoProposta(PropostaEstado.ELEGIVEL);
+        } catch (FeignException e) {
+            novaProposta.setEstadoProposta(PropostaEstado.NAO_ELEGIVEL);
+        }
+
+        URI enderecoRecurso = uriComponentsBuilder.path("/propostas/{id}").build(novaProposta.getId());
         return ResponseEntity.created(enderecoRecurso).build();
     }
 }

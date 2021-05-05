@@ -1,9 +1,6 @@
 package br.com.zupacademy.william.proposta.proposta;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
@@ -19,6 +16,9 @@ public class Proposta {
     private String endereco;
     private BigDecimal salario;
 
+    @Enumerated(EnumType.STRING)
+    private PropostaEstado propostaEstado;
+
     public Proposta(String documento, String email, String nome, String endereco, BigDecimal salario) {
         this.documento = documento;
         this.email = email;
@@ -33,5 +33,17 @@ public class Proposta {
 
     public Long getId() {
         return id;
+    }
+
+    public String getDocumento() {
+        return documento;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setEstadoProposta(PropostaEstado propostaEstado) {
+        this.propostaEstado = propostaEstado;
     }
 }
