@@ -1,4 +1,4 @@
-package br.com.zupacademy.william.proposta;
+package br.com.zupacademy.william.proposta.proposta;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -1,4 +1,4 @@
-package br.com.zupacademy.william.proposta;
+package br.com.zupacademy.william.proposta.proposta;
 
 import br.com.zupacademy.william.proposta.validation.CpfCnpj;
 
@@ -10,11 +10,11 @@ import java.math.BigDecimal;
 
 public class PropostaRequest {
 
-//    @NotBlank
+    @NotBlank
     @CpfCnpj
     private String documento;
 
-//    @NotBlank
+    @NotBlank
     @Email
     private String email;
 
@@ -38,5 +38,9 @@ public class PropostaRequest {
 
     public Proposta toModel() {
         return new Proposta(this.documento, this.email, this.nome, this.endereco, this.salario);
+    }
+
+    public String getDocumento() {
+        return documento;
     }
 }

@@ -1,4 +1,4 @@
-package br.com.zupacademy.william.proposta;
+package br.com.zupacademy.william.proposta.proposta;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +23,13 @@ public class PropostaController {
     @PostMapping
     public ResponseEntity criar(UriComponentsBuilder uriComponentsBuilder,
                                 @RequestBody @Valid PropostaRequest propostaRequest) {
+
+        boolean documentoJaCadastrado = propostaRepository.existsByDocumento(propostaRequest.getDocumento());
+
+        if (documentoJaCadastrado) {
+            return ResponseEntity.unprocessableEntity().build();
+        }
+
         Proposta proposta = propostaRequest.toModel();
         Proposta novaProposta = propostaRepository.save(proposta);
         URI enderecoRecurso = uriComponentsBuilder.path("/propostas/{id}").build(novaProposta.getId());
