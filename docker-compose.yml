@@ -125,6 +125,16 @@ services:
     depends_on:
       - prometheus
 
+  proposta:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    image: proposta
+    restart: on-failure
+    container_name: proposta
+    ports:
+      - "8080:8080"
+
   vault:
     image: vault:1.5.3
     ports:
