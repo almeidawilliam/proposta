@@ -60,4 +60,20 @@ public class Proposta {
     public boolean eElegivel() {
         return this.propostaEstado.equals(PropostaEstado.ELEGIVEL);
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public BigDecimal getSalario() {
+        return salario;
+    }
+
+    public PropostaEstado getPropostaEstado() {
+        return propostaEstado;
+    }
 }

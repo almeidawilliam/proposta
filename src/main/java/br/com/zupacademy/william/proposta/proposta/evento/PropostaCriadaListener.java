@@ -1,6 +1,5 @@
 package br.com.zupacademy.william.proposta.proposta.evento;
 
-import br.com.zupacademy.william.proposta.gateway.analisefinanceira.AnaliseFinanceiraClient;
 import br.com.zupacademy.william.proposta.gateway.cartao.CartaoClient;
 import br.com.zupacademy.william.proposta.gateway.cartao.GeracaoCartaoRequestGateway;
 import br.com.zupacademy.william.proposta.proposta.Proposta;
@@ -12,9 +11,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class PropostaCriadaListener {
-
-    @Autowired
-    private AnaliseFinanceiraClient analiseFinanceiraClient;
 
     @Autowired
     private CartaoClient cartaoClient;
