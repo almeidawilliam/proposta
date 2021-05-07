@@ -1,4 +1,4 @@
-package br.com.zupacademy.william.proposta.proposta.analisefinanceira;
+package br.com.zupacademy.william.proposta.gateway.analisefinanceira;
 
 public class AnaliseFinanceiraResponse {
 

@@ -1,5 +1,7 @@
 package br.com.zupacademy.william.proposta.proposta;
 
+import br.com.zupacademy.william.proposta.proposta.cartao.Cartao;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -18,6 +20,10 @@ public class Proposta {
 
     @Enumerated(EnumType.STRING)
     private PropostaEstado propostaEstado;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id", referencedColumnName = "id_proposta")
+    private Cartao cartao;
 
     public Proposta(String documento, String email, String nome, String endereco, BigDecimal salario) {
         this.documento = documento;
@@ -45,5 +51,13 @@ public class Proposta {
 
     public void setEstadoProposta(PropostaEstado propostaEstado) {
         this.propostaEstado = propostaEstado;
+    }
+
+    public void vincularCartao(Cartao cartao) {
+        this.cartao = cartao;
+    }
+
+    public boolean eElegivel() {
+        return this.propostaEstado.equals(PropostaEstado.ELEGIVEL);
     }
 }

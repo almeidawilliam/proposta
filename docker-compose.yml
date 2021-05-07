@@ -29,8 +29,7 @@ services:
     ports:
       - 5432:5432
     environment:
-      POSTGRES_USER: keyclospring.datasource.username=
-  spring.datasource.password=ak
+      POSTGRES_USER: keycloak
       POSTGRES_PASSWORD: password
       POSTGRES_DB: keycloak
       POSTGRES_HOST: postgres
