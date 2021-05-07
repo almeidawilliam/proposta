@@ -18,6 +18,11 @@ public class Vencimento {
     private LocalDateTime dataCriacao;
     private Long idCartao;
 
+//    @OneToOne
+//    @JoinColumn(name = "id_cartao")
+//    private Cartao cartao;
+
+
     public Vencimento(String identificadorVencimento, int dia, LocalDateTime dataCriacao) {
         this.identificadorVencimento = identificadorVencimento;
         this.dia = dia;

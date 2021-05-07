@@ -47,6 +47,10 @@ public class Cartao {
     @JoinColumn(name = "idCartao")
     private List<Vencimento> vencimento;
 
+
+//    @OneToOne(cascade = CascadeType.ALL, optional = false, mappedBy = "cartao")
+//    private Vencimento vencimento;
+
 //    public Cartao(String numero, LocalDateTime emitidoEm, String titular, Long limite, String renegociacao,
 //                  Long idProposta, List<Bloqueio> bloqueios, List<Aviso> avisos, List<Carteira> carteiras,
 //                  List<Parcela> parcelas, Vencimento vencimento) {
