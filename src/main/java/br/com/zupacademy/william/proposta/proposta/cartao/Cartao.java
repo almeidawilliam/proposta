@@ -84,4 +84,8 @@ public class Cartao {
     @Deprecated
     public Cartao() {
     }
+
+    public Long getId() {
+        return id;
+    }
 }
