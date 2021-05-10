@@ -1,4 +1,4 @@
-package br.com.zupacademy.william.proposta.biometria;
+package br.com.zupacademy.william.proposta.proposta.cartao.biometria;
 
 import br.com.zupacademy.william.proposta.exception.EntidadeNaoEncontradaException;
 import br.com.zupacademy.william.proposta.proposta.cartao.Cartao;
