@@ -88,4 +88,16 @@ public class Cartao {
     public Long getId() {
         return id;
     }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void associarBloqueio(Bloqueio bloqueio) {
+        this.bloqueios.add(bloqueio);
+    }
+
+    public boolean estaBloqueado() {
+        return !this.bloqueios.isEmpty();
+    }
 }
