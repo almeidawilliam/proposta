@@ -15,4 +15,7 @@ public interface CartaoClient {
     BloqueioCartaoGatewayReponse bloquearCartao(@PathVariable String id,
                                                 @RequestBody BloqueioCartaoGatewayRequest bloqueioCartaoGatewayRequest);
 
+    @PostMapping("/{id}/avisos")
+    AvisoViagemGatewayResponse criarAvisoDeViagem(@PathVariable String id,
+                                                  @RequestBody AvisoViagemGatewayRequest avisoViagemGatewayRequest);
 }
