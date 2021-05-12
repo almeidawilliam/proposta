@@ -18,4 +18,10 @@ public interface CartaoClient {
     @PostMapping("/{id}/avisos")
     AvisoViagemGatewayResponse criarAvisoDeViagem(@PathVariable String id,
                                                   @RequestBody AvisoViagemGatewayRequest avisoViagemGatewayRequest);
+
+    @PostMapping("/{id}/carteiras")
+    CarteiraGatewayResponse criarCarteiraDigital(@PathVariable String id,
+                                                 @RequestBody CarteiraGatewayRequest carteiraGatewayRequest);
+
+
 }

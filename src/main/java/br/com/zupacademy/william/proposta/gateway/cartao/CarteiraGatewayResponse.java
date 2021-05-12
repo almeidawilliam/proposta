@@ -2,7 +2,20 @@ package br.com.zupacademy.william.proposta.gateway.cartao;
 
 public class CarteiraGatewayResponse {
 
-    private Long id;
+    private String id;
+    private String resultado;
 
-    private Long idCartao;
+
+    public CarteiraGatewayResponse(String id, String resultado) {
+        this.id = id;
+        this.resultado = resultado;
+    }
+
+    public String getResultado() {
+        return resultado;
+    }
+
+    public String getId() {
+        return id;
+    }
 }

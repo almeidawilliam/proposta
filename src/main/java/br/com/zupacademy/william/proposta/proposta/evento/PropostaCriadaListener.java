@@ -30,7 +30,7 @@ public class PropostaCriadaListener {
                     novaProposta.getNome());
 
             var geracaoCartaoResponseGateway = cartaoClient.cadastrarCartao(geracaoCartaoRequest);
-            var novoCartao = geracaoCartaoResponseGateway.toModel();
+            var novoCartao = geracaoCartaoResponseGateway.toModel(novaProposta);
             novaProposta.vincularCartao(novoCartao);
         } catch (Exception ignored) {
         }
