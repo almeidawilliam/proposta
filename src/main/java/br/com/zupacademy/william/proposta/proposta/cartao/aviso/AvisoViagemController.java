@@ -52,10 +52,9 @@ public class AvisoViagemController {
 
             AvisoViagem novoAvisoDeViagem = avisoViagemRequest.toModel(ipClienteDaRequisicao, userAgent);
             cartao.associarAvisoDeViagem(novoAvisoDeViagem);
+            return ResponseEntity.ok().build();
         } catch (FeignException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
-
-        return ResponseEntity.ok().build();
     }
 }
