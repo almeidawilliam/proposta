@@ -1,6 +1,6 @@
 package br.com.zupacademy.william.proposta.proposta.cartao;
 
-import br.com.zupacademy.william.proposta.proposta.cartao.aviso.Aviso;
+import br.com.zupacademy.william.proposta.proposta.cartao.aviso.AvisoViagem;
 import br.com.zupacademy.william.proposta.proposta.cartao.bloqueio.Bloqueio;
 import br.com.zupacademy.william.proposta.proposta.cartao.carteira.Carteira;
 import br.com.zupacademy.william.proposta.proposta.cartao.parcela.Parcela;
@@ -34,7 +34,7 @@ public class Cartao {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "idCartao")
-    private List<Aviso> avisos;
+    private List<AvisoViagem> avisosViagem;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "idCartao")
@@ -103,5 +103,9 @@ public class Cartao {
 
     public boolean estaBloqueado() {
         return this.estadoCartao.equals(EstadoCartao.BLOQUEADO);
+    }
+
+    public void associarAvisoDeViagem(AvisoViagem avisoViagem) {
+        this.avisosViagem.add(avisoViagem);
     }
 }
