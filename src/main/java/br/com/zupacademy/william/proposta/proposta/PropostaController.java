@@ -3,7 +3,7 @@ package br.com.zupacademy.william.proposta.proposta;
 import br.com.zupacademy.william.proposta.exception.EntidadeNaoEncontradaException;
 import br.com.zupacademy.william.proposta.gateway.analisefinanceira.AnaliseFinanceiraClient;
 import br.com.zupacademy.william.proposta.gateway.analisefinanceira.AnaliseFinanceiraRequest;
-import br.com.zupacademy.william.proposta.infraestrutura.seguranca.Metricas;
+import br.com.zupacademy.william.proposta.infraestrutura.metricas.Metricas;
 import br.com.zupacademy.william.proposta.proposta.evento.PropostaCriadaEvent;
 import feign.FeignException;
 import io.micrometer.core.instrument.MeterRegistry;

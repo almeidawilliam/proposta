@@ -1,6 +1,7 @@
 package br.com.zupacademy.william.proposta.proposta;
 
 import br.com.zupacademy.william.proposta.proposta.cartao.Cartao;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -25,7 +26,8 @@ public class Proposta {
     private Cartao cartao;
 
     public Proposta(String documento, String email, String nome, String endereco, BigDecimal salario) {
-        this.documento = documento;
+        BCryptPasswordEncoder bCrypt3 = new BCryptPasswordEncoder();
+        this.documento = bCrypt3.encode(documento);
         this.email = email;
         this.nome = nome;
         this.endereco = endereco;

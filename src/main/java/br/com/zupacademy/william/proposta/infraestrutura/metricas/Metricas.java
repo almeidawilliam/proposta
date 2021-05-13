@@ -1,4 +1,4 @@
-package br.com.zupacademy.william.proposta.infraestrutura.seguranca;
+package br.com.zupacademy.william.proposta.infraestrutura.metricas;
 
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.MeterRegistry;
