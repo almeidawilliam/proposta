@@ -12,6 +12,7 @@ public class Biometria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+//    @Lob
     private byte[] fingerPrint;
 
     @ManyToOne
